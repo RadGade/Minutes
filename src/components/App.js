@@ -1,15 +1,27 @@
-import '../assets/css/App.css';
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useLocation
+} from "react-router-dom";
+import Login  from './login';
+import Freinds from './freinds';
+import './css/App.css'
+import {Header} from './header'
 
-class App extends React.Component {
+export class App extends Component {
   render() {
     return (
       <div>
-        <h1>Hello, Electron!</h1>
-        <p>I hope you enjoy using basic-electron-react-boilerplate to start your dev off right!</p>
+      <Header />
+        <Route exact path="/" component={Login}/>
+        <Route exact path="/home" component={Freinds}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
